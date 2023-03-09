@@ -6,8 +6,8 @@ import { loginAction, loginFailedAction, loginSuccessAction } from "./auth.reduc
 
 @Injectable()
 export class AuthEffects {
-    actions$ = inject(Actions)
-    router = inject(Router)
+    private readonly actions$ = inject(Actions)
+    private readonly router = inject(Router)
 
     onLogin$ = createEffect(() => this.actions$.pipe(
         ofType(loginAction),

@@ -1,6 +1,6 @@
-# AdvancedAngular2023
+# Angular Advanced
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0-next.1.
+This project showcases some advanced angular concepts. It's used as the driver for my Advanced Angular Training sessions. Setup and available commands instructions are documented [here](https://github.com/fdonzello/angular-advanced/tree/master/docs/index.md).
 
 ## Development server
 

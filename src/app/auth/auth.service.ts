@@ -8,7 +8,7 @@ import { loginAction, logoutAction } from './auth.reducer';
 })
 export class AuthService {
 
-  store = inject(Store);
+  private readonly store = inject(Store);
 
   login(email: string, password: string) {
     this.store.dispatch(loginAction({ email, password }))
