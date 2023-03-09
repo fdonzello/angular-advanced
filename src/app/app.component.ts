@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'advanced-angular-2023';
+  get year() {
+    return new Date().getFullYear()
+  }
 }

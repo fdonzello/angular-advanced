@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col text-center">
+            Your balance is: <strong id="balance">$ {{ balance$ | async }}</strong>
+        </div>
+    </div>
+
+    <div class="row mt-3" id="loader" *ngIf="(posting$ | async)">
+        <div class="col">
+            <div class="alert alert-info">
+                Operation in progress...
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3" id="error" *ngIf="(failed$ | async)">
+        <div class="col">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>An Error occurred!</strong> {{ (request$ | async)?.failureReason }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <form [formGroup]="form" (submit)="submit()">
+                <div class="mb-3">
+                    <label for="amount">Amount</label>
+                    <input formControlName="amount" type="number" class="form-control" id="amount"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input formControlName="operationType" [value]="depositOperationChoice" type="radio"
+                            id="deposit" class="form-check-input">
+                        <label class="form-check-label" for="deposit">Deposit</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="operationType" [value]="withdrawOperationChoice" type="radio"
+                            id="withdraw" class="form-check-input">
+                        <label class="form-check-label" for="withdraw">Withdraw</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="form.invalid || (posting$ | async)">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
